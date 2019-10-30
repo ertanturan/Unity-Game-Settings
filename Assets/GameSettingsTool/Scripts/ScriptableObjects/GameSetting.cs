@@ -6,6 +6,6 @@ using UnityEngine;
 public class GameSetting : ScriptableObject
 {
 
-    public AntiAliasing AntiAliasing = AntiAliasing.Two;
+    public AntiAliasing AntiAliasing = AntiAliasing.None;
 
 }
