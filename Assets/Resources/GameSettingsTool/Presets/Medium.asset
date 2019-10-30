@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f839d9fd6134645a111cf2113eea9f, type: 3}
   m_Name: Medium
   m_EditorClassIdentifier: 
+  Type: 1
   AntiAliasing: 2

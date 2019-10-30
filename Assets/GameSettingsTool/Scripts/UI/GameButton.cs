@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameButton : MonoBehaviour
 {
     private Button _button;
-    public SettingType SettingType;
+    public GameSetting  Setting;
     private void Awake()
     {
         _button = GetComponent<Button>();
@@ -17,7 +17,7 @@ public class GameButton : MonoBehaviour
 
     private void OnButtonClick()
     {
-        GameSettingsSystem.SetSettings(SettingType);
+        GameSettingsSystem.SetSettings(Setting);
     }
 
 

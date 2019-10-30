@@ -4,43 +4,23 @@ using UnityEngine;
 
 public static class GameSettingsSystem
 {
+    private static GameSetting [] _gameSettings;
+    private static GameSetting _currentSetting;
 
-    public static void Init()
+    public static void Init(GameSetting[] array)
     {
-
+        _gameSettings = array;
     }
 
-    public static void SetSettings(SettingType type)
+    public static void SetSettings(GameSetting type)
     {
-        switch (type)
-        {
-            case SettingType.Fast:
-                SetSettingsFast();
-                break;
-            case SettingType.High:
-                SetSettingsHigh();
-                break;
-            case SettingType.Medium:
-                SetSettingsMedium();
-                break;
-        }
+        
 
         GameSettingsManager.Instance.OnGameSettingChange.Invoke();
     }
 
-    private static void SetSettingsFast()
-    {
-        Debug.Log("FAST");
-    }
 
-    private static void SetSettingsHigh()
-    {
-        Debug.Log("HIGH");
-    }
 
-    private static void SetSettingsMedium()
-    {
-        Debug.Log("MEDIUM");
-    }
+
 
 }
