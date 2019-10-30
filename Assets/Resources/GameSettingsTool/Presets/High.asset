@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: High
   m_EditorClassIdentifier: 
   Type: 2
-  AntiAliasing: 2
+  QualityIndex: 5
+  ApplyExpensiveSettings: 1
+  PostProcessProfile: {fileID: 11400000, guid: 18e7bda855c04a7458dc7313e3eeec6f, type: 2}

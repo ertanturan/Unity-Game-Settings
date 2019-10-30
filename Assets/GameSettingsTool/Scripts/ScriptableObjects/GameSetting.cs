@@ -6,14 +6,17 @@ using UnityEngine.Rendering.PostProcessing;
 [CreateAssetMenu(fileName = "New Game Setting", menuName = "Game Settings/New Game Setting")]
 public class GameSetting : ScriptableObject
 {
+
     [Header("Identifiers")]
     public SettingType Type;
 
-    [Space] [Header("Quality Settings")]
+    [Space]
+    [Header("Quality Settings")]
 
-    public PostProcessLayer.Antialiasing temp;
-    public VSyncType Vsync;
-
+    public int QualityIndex;
+    public bool ApplyExpensiveSettings;
     public PostProcessProfile PostProcessProfile;
+
+
 
 }

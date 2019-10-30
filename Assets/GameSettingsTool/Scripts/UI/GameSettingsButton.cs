@@ -5,10 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class GameButton : MonoBehaviour
+public class GameSettingsButton : MonoBehaviour
 {
     private Button _button;
-    public GameSetting  Setting;
+
+    public GameSetting Setting;
+
     private void Awake()
     {
         _button = GetComponent<Button>();
@@ -19,6 +21,5 @@ public class GameButton : MonoBehaviour
     {
         GameSettingsSystem.SetSettings(Setting);
     }
-
 
 }

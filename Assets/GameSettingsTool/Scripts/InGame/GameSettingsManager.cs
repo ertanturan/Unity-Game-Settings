@@ -1,31 +1,33 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 public class GameSettingsManager : MonoBehaviour
 {
-
     public static GameSettingsManager Instance;
 
-    private GameSetting [] _settings;
-    public SettingType GameSetting;
+    [Header("Quality Settings")]
     public PostProcessVolume PPVolume;
+    public PostProcessLayer PPLayer;
 
-    public UnityAction SettingChangeAction;
-    public UnityEvent OnGameSettingChange;
-
+    public GameSetting QualityDefaults;
 
     private void Awake()
     {
 
+
+        Instance = this;
+        if (PPLayer == null || PPVolume == null)
+        {
+            Debug.LogError("Post process volume or post process layer is null !. " +
+                           "Won't initialize the game settings system .. ");
+        }
+        else
+        {
+            Debug.Log("No error occured. Will init ...");
+            GameSettingsSystem.Init(true);
+        }
     }
 
-    private void OnSettingsChange()
-    {
-        Debug.Log("ON CHANGE");
-    }
+
 
 }
