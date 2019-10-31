@@ -14,21 +14,23 @@ public class GameSettingsManager : MonoBehaviour
     [Header("Resolution Set")]
     public List<Vector2> _resolutions;
 
+    [Header("Camera")]
+    public Camera Cam;
 
     private void Awake()
     {
 
 
         Instance = this;
-        if (PPLayer == null || PPVolume == null)
+        if (PPLayer == null || PPVolume == null || Cam == null)
         {
-            Debug.LogError("Post process volume or post process layer is null !. " +
+            Debug.LogError("At least one of the required attributes is null . Change it and retry . " +
                            "Won't initialize the game settings system .. ");
         }
         else
         {
             Debug.Log("No error occured. Will init ...");
-            GameSettingsSystem.Init(true);
+            GameSettingsSystem.Init();
         }
     }
 

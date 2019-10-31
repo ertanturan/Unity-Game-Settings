@@ -17,6 +17,6 @@ public class GameSetting : ScriptableObject
     public bool ApplyExpensiveSettings;
     public PostProcessProfile PostProcessProfile;
 
-
+    public float CameraFar = 1000f;
 
 }

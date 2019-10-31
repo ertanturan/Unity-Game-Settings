@@ -16,3 +16,4 @@ MonoBehaviour:
   QualityIndex: 0
   ApplyExpensiveSettings: 0
   PostProcessProfile: {fileID: 11400000, guid: 62002ce50e271ce44939d15465c8605d, type: 2}
+  CameraFar: 800

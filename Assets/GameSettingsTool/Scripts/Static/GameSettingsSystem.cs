@@ -10,14 +10,12 @@ public static class GameSettingsSystem
 
     private static bool _releaseSystem = false;
 
-    public static void Init(bool runDefaults = false)
+    public static void Init()
     {
         _releaseSystem = true;
 
-        if (runDefaults)
-        {
-            SetSettings(GameSettingsManager.Instance.QualityDefaults);
-        }
+        SetSettings(GameSettingsManager.Instance.QualityDefaults);
+
     }
 
     public static void SetSettings(GameSetting setting)
@@ -32,18 +30,35 @@ public static class GameSettingsSystem
             if (GameSettingsManager.Instance.PPVolume.profile != setting.PostProcessProfile)
             {
                 GameSettingsManager.Instance.PPVolume.profile = setting.PostProcessProfile;
+                GameSettingsManager.Instance.Cam.farClipPlane = setting.CameraFar;
             }
         }
-
+        else
+        {
+            ReturnMessage();
+        }
 
     }
 
     public static void OnResolutionChange(TMP_Dropdown _ddResolution)
     {
-        int width = int.Parse(_ddResolution.options[_ddResolution.value].text.Split('x')[0]);
+        if (_releaseSystem)
+        {
+            int width = int.Parse(_ddResolution.options[_ddResolution.value].text.Split('x')[0]);
 
-        int height = int.Parse(_ddResolution.options[_ddResolution.value].text.Split('x')[1]);
+            int height = int.Parse(_ddResolution.options[_ddResolution.value].text.Split('x')[1]);
 
-        Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, true);
+        }
+        else
+        {
+            ReturnMessage();
+        }
+    }
+
+    private static void ReturnMessage(string message = "System was not released game " +
+                                                     "settings won't work if not released...")
+    {
+        Debug.LogError(message);
     }
 }
