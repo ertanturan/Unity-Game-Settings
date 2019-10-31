@@ -40,11 +40,9 @@ public static class GameSettingsSystem
 
     public static void OnResolutionChange(TMP_Dropdown _ddResolution)
     {
-
         int width = int.Parse(_ddResolution.options[_ddResolution.value].text.Split('x')[0]);
 
         int height = int.Parse(_ddResolution.options[_ddResolution.value].text.Split('x')[1]);
-
 
         Screen.SetResolution(width, height, true);
     }

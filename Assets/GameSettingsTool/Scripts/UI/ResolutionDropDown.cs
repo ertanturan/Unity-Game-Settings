@@ -9,6 +9,7 @@ public class ResolutionDropDown : MonoBehaviour
 {
     private TMP_Dropdown _ddResolution;
 
+
     private void Awake()
     {
         _ddResolution = GetComponent<TMP_Dropdown>();
@@ -19,13 +20,17 @@ public class ResolutionDropDown : MonoBehaviour
             }
             );
 
-        for (int i = 0; i < Screen.resolutions.Length; i++)
+
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < GameSettingsManager.Instance._resolutions.Count; i++)
         {
             _ddResolution.options.Add(new TMP_Dropdown.OptionData(
-                Screen.resolutions[i].width + "x" +
-                Screen.resolutions[i].height
+                GameSettingsManager.Instance._resolutions[i].x + "x" +
+                GameSettingsManager.Instance._resolutions[i].y
             ));
         }
     }
-
 }

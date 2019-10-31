@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 public class GameSettingsManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class GameSettingsManager : MonoBehaviour
     public PostProcessLayer PPLayer;
 
     public GameSetting QualityDefaults;
+    [Header("Resolution Set")]
+    public List<Vector2> _resolutions;
+
 
     private void Awake()
     {
